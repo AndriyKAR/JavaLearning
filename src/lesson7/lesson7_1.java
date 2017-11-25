@@ -9,7 +9,7 @@ public class lesson7_1 {
         Random random = new Random();
 
         int magicNumber = random.nextInt(101);
-        int userGuess;
+        int userGuess ;
         int counter = 1;
         int maxAttempts = 10;
 
@@ -33,7 +33,7 @@ public class lesson7_1 {
                         counter++;
                         System.out.println("You enter to small number");
                     }
-                    if (userGuess > magicNumber) {
+                     else if (userGuess > magicNumber) {
                         counter++;
                         System.out.println("You enter to big number");
                     }
@@ -42,21 +42,19 @@ public class lesson7_1 {
                     System.out.println("Magic number was: " + magicNumber);
                     break;
                 }
-
-            }/*    int totalPayout = 0;
-                    int payout = 200;
-                    int prizeCounter=0;
-
-                    if (userGuess == magicNumber) {
-                        prizeCounter = maxAttempts - counter;
-                        totalPayout = prizeCounter * payout;
-                    }
-                    System.out.println("Your payout  - " + totalPayout);*/
-
-
+            }
         } while (true);
 
 
-        //System.out.println("Magic number = " + magicNumber);
+        int totalPayout = 0;
+        int payout = 200;
+        int prizeCounter;
+
+        if (userGuess == magicNumber) {
+            prizeCounter = maxAttempts - counter;
+            totalPayout = prizeCounter * payout;
+        }
+        System.out.println("Your payout  - " + totalPayout + "$");
+        System.out.println("Magic number - " + magicNumber);
     }
 }
