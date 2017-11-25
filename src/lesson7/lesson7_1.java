@@ -54,7 +54,7 @@ public class lesson7_1 {
             prizeCounter = maxAttempts - counter;
             totalPayout = prizeCounter * payout;
         }
-        System.out.println("Your payout  - " + totalPayout + "$");
+        System.out.println("Your payout  - " + totalPayout + " $ ");
         System.out.println("Magic number - " + magicNumber);
     }
 }
