@@ -54,7 +54,7 @@ public class task10_2 {
         int user_choice = 0;
 
         do {
-            System.out.println("1 - Show information");
+            System.out.println("1 - Generate data");
             System.out.println("2 - Update information");
             System.out.println("3 - Delete information");
             System.out.println("0 - Exit");
