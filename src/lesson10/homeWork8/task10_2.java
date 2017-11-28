@@ -3,6 +3,7 @@ package lesson10.homeWork8;/*В масиві зберігаються дані �
         в яких вартість проданих товарів перевищує значення s.*/
 
 
+import java.math.BigDecimal;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,28 +13,33 @@ public class task10_2 {
         Random random = new Random();
 
         System.out.print("Enter maximum sales value in $ ");
-        int salesMaxValue = input.nextInt();
+        double salesMaxValue = input.nextDouble();
         System.out.println("\nYour best sales will be 20% less then maximum sales values ");
 
-        int s;
+        double s;
         s = salesMaxValue - ((salesMaxValue / 100) * 20);
         System.out.println("\nYour best sales begin to level - " + s + " $");
-        int bestSales = s;
+        double bestSales = s;
         int daysMarch = 31;
         int counterBestSales = 0;
-        int sumSales = 0;
+        double sumSales = 0;
 
 
-        int[] March = new int[daysMarch];
+        double[] March = new double[daysMarch];
+
 
         for (int i = 1; i < daysMarch; i++) {
-            March[i] = random.nextInt(salesMaxValue);
-            sumSales+=March[i];
+
+            March[i] = random.nextInt(800) + random.nextDouble();// при вказуванні bestSales
+            // вибиває помилку по double
+            sumSales += March[i];
 
             if (March[i] > bestSales) {
                 counterBestSales++;
-            }
-            System.out.println( March[i]);
+            }/*
+            BigDecimal x = new BigDecimal(March[daysMarch]);
+            x = x.setScale(2, BigDecimal.ROUND_HALF_UP);*/
+            System.out.println(March[i]);
             // запускаю, щоб бачити які числа генерує рендом просто з інтересу
         }
         System.out.println("March sales days result - " + counterBestSales);
