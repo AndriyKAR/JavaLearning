@@ -45,6 +45,7 @@ public class task10_2 {
         System.out.println("March sales days result - " + counterBestSales);
         System.out.println("Total sum of March sales - " + sumSales + "$");
         // Тепер це завдання ше треба превести в double
+        // New Line
 
     }
 }
