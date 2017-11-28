@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class task10_2 {
     public static void main(String[] args) {
+        //Start task
         Scanner input = new Scanner(System.in);
         Random random = new Random();
 
