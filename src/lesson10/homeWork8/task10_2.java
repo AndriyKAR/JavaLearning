@@ -1,13 +1,12 @@
-package lesson10.homeWork8;/*В масиві зберігаються дані про загальну вартість товарів,
-        проданих компанією за кожний день березня. Визначити кількість днів,
-        в яких вартість проданих товарів перевищує значення s.*/
+package lesson10.homeWork8;
 
-
-import java.math.BigDecimal;
 import java.util.Random;
 import java.util.Scanner;
 
 public class task10_2 {
+    /*В масиві зберігаються дані про загальну вартість товарів,
+        проданих компанією за кожний день березня. Визначити кількість днів,
+        в яких вартість проданих товарів перевищує значення s.*/
     public static void main(String[] args) {
         //Start task
         Scanner input = new Scanner(System.in);
@@ -47,6 +46,38 @@ public class task10_2 {
         System.out.println("Total sum of March sales - " + sumSales + "$");
         // Тепер це завдання ше треба превести в double
         // New Line
+
+    }
+
+    public static void menu() {
+        Scanner Scan = new Scanner(System.in);
+        int user_choice = 0;
+
+        do {
+            System.out.println("1 - Show information");
+            System.out.println("2 - Update information");
+            System.out.println("3 - Delete information");
+            System.out.println("0 - Exit");
+
+            System.out.print("\nPlease enter menu number: ");
+            user_choice = Scan.nextInt();
+
+            switch (user_choice) {
+                case 1:
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 0:
+                    System.exit(0);
+                default:
+                    System.out.println("Wrong menu number");
+            }
+        } while (true);
 
     }
 }
