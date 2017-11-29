@@ -1,8 +1,7 @@
-package lesson10.homeWork8;
+package lesson10.homeWork10;
 
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.Random;
 

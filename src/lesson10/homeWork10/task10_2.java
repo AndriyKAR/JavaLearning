@@ -1,9 +1,8 @@
-package lesson10.homeWork8;/*В масиві зберігаються дані про загальну вартість товарів,
+package lesson10.homeWork10;/*В масиві зберігаються дані про загальну вартість товарів,
         проданих компанією за кожний день березня. Визначити кількість днів,
         в яких вартість проданих товарів перевищує значення s.*/
 
 
-import java.math.BigDecimal;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,7 +12,7 @@ public class task10_2 {
         Random random = new Random();
 
         System.out.print("Enter maximum sales value in $ ");
-        double salesMaxValue = input.nextDouble();
+        int  salesMaxValue = input.nextInt();
         System.out.println("\nYour best sales will be 20% less then maximum sales values ");
 
         double s;
@@ -26,25 +25,39 @@ public class task10_2 {
 
 
         double[] March = new double[daysMarch];
+        int counterDays = 0;
 
 
-        for (int i = 1; i < daysMarch; i++) {
+        for (int i = 0; i < daysMarch; i++) {
 
-            March[i] = random.nextInt(800) + random.nextDouble();// при вказуванні bestSales
+            March[i] = random.nextInt(salesMaxValue) + random.nextDouble();// при вказуванні bestSales
             // вибиває помилку по double
             sumSales += March[i];
+            counterDays++;
 
             if (March[i] > bestSales) {
                 counterBestSales++;
-            }/*
-            BigDecimal x = new BigDecimal(March[daysMarch]);
-            x = x.setScale(2, BigDecimal.ROUND_HALF_UP);*/
-            System.out.println(March[i]);
+            }
+            System.out.println(counterDays + ") - " + March[i]);
             // запускаю, щоб бачити які числа генерує рендом просто з інтересу
         }
         System.out.println("March sales days result - " + counterBestSales);
-        System.out.println("Total sum of March sales - " + sumSales + "$");
+        System.out.println("\nTotal sum of March sales - " + sumSales + "$");
         // Тепер це завдання ше треба превести в double
+
+        double averageSales;
+        int counterMediumSales = 0;
+        averageSales = sumSales / daysMarch;
+        System.out.println("\nValue of medium sales - " + averageSales);
+
+
+        for (int i = 0; i < daysMarch; i++) {
+            if (averageSales < March[i]) {
+                counterMediumSales++;
+                System.out.println(March[i]);
+            }
+        }
+        System.out.println(" Quantity March days over medium sales - " + counterMediumSales);
 
     }
 }
