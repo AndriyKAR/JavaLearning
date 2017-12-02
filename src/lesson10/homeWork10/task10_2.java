@@ -1,63 +1,78 @@
-package lesson10.homeWork10;/*В масиві зберігаються дані про загальну вартість товарів,
-        проданих компанією за кожний день березня. Визначити кількість днів,
-        в яких вартість проданих товарів перевищує значення s.*/
-
+package lesson10.homeWork8;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class task10_2 {
+    /*В масиві зберігаються дані про загальну вартість товарів,
+        проданих компанією за кожний день березня. Визначити кількість днів,
+        в яких вартість проданих товарів перевищує значення s.*/
+    static Scanner input = new Scanner(System.in);
+    static double[] MarchSells;
+
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        menu();
+    }
+
+    public static void menu() {
+        Scanner Scan = new Scanner(System.in);
+        int user_choice;
+
+        do {
+            System.out.println("\n1 - Generate data");
+            System.out.println("2 - Show information");
+            System.out.println("3 - First search");
+            System.out.println("0 - Exit");
+
+            System.out.print("\nPlease enter menu number: ");
+            user_choice = Scan.nextInt();
+
+            switch (user_choice) {
+                case 1:
+                    System.out.print("Enter data numbers: ");
+                    int quatity = input.nextInt();
+                    MarchSells = new double[quatity];
+                    generateData(MarchSells);
+                    break;
+                case 2:
+                    showData(MarchSells);
+                    break;
+                case 3:
+                    firstSearch(MarchSells);
+                    break;
+                case 0:
+                    System.exit(0);
+                default:
+                    System.out.println("Wrong menu number");
+            }
+        } while (true);
+
+    }
+
+    public static void generateData(double[] March) {
         Random random = new Random();
-
-        System.out.print("Enter maximum sales value in $ ");
-        int  salesMaxValue = input.nextInt();
-        System.out.println("\nYour best sales will be 20% less then maximum sales values ");
-
-        double s;
-        s = salesMaxValue - ((salesMaxValue / 100) * 20);
-        System.out.println("\nYour best sales begin to level - " + s + " $");
-        double bestSales = s;
-        int daysMarch = 31;
-        int counterBestSales = 0;
-        double sumSales = 0;
-
-
-        double[] March = new double[daysMarch];
-        int counterDays = 0;
-
-
-        for (int i = 0; i < daysMarch; i++) {
-
-            March[i] = random.nextInt(salesMaxValue) + random.nextDouble();// при вказуванні bestSales
-            // вибиває помилку по double
-            sumSales += March[i];
-            counterDays++;
-
-            if (March[i] > bestSales) {
-                counterBestSales++;
-            }
-            System.out.println(counterDays + ") - " + March[i]);
-            // запускаю, щоб бачити які числа генерує рендом просто з інтересу
+        for (int i = 0; i < March.length; i++) {
+            March[i] = random.nextInt(1001) + random.nextDouble();
         }
-        System.out.println("March sales days result - " + counterBestSales);
-        System.out.println("\nTotal sum of March sales - " + sumSales + "$");
-        // Тепер це завдання ше треба превести в double
+    }
 
-        double averageSales;
-        int counterMediumSales = 0;
-        averageSales = sumSales / daysMarch;
-        System.out.println("\nValue of medium sales - " + averageSales);
+    public static void showData(double[] someArray) {
+        for (int i = 0; i < someArray.length; i++) {
+            System.out.println("[" + i + "] = " + someArray[i]);
+        }
+    }
 
+    public static void firstSearch(double[] someArray) {
+        System.out.print("Enter value number: ");
+        int values = input.nextInt();
+        int counter = 0;
 
-        for (int i = 0; i < daysMarch; i++) {
-            if (averageSales < March[i]) {
-                counterMediumSales++;
-                System.out.println(March[i]);
+        for (int i = 0; i <someArray.length ; i++) {
+            if (someArray[i]>values){
+                System.out.println("[" + (i +1)+ "] = " + someArray[i]);
+                counter++;
             }
         }
-        System.out.println(" Quantity March days over medium sales - " + counterMediumSales);
-
+        System.out.println("Day numbers: "+counter);
     }
 }
