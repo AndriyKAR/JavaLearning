@@ -29,15 +29,15 @@ public class lesson7_1 {
                     System.out.println("Total trying - " + counter);
                     break;}
 
-                    if (userGuess < magicNumber) {
-                        counter++;
-                        System.out.println("You enter to small number");
-                    }
-                     else if (userGuess > magicNumber) {
-                        counter++;
-                        System.out.println("You enter to big number");
-                    }
-                 else {
+                if (userGuess < magicNumber) {
+                    counter++;
+                    System.out.println("You enter to small number");
+                }
+                else if (userGuess > magicNumber) {
+                    counter++;
+                    System.out.println("You enter to big number");
+                }
+                else {
                     System.out.println("You used all attempts.");
                     System.out.println("Magic number was: " + magicNumber);
                     break;

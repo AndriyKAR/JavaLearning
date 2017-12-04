@@ -92,18 +92,15 @@ public class task10_2_2 {
 
     public static void SalesAverage(double[] sameArray) {
         double sumSales = 0;
-
-        for (int i = 0; i < sameArray.length; i++) {
-            sumSales = sumSales + sameArray[i];
-
-        }
-
         int counterMediumSales = 0;
         double averageSales;
 
+        for (int i = 0; i < sameArray.length; i++) {
+            sumSales = sumSales + sameArray[i];
+        }
+
         averageSales = sumSales / sameArray.length;
         System.out.println("\nValue of medium sales - " + averageSales);
-
 
         for (int i = 0; i < sameArray.length; i++) {
             if (averageSales < sameArray[i]) {
